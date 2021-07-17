@@ -14,7 +14,7 @@ def lambda_handler(event, context):
         in_customerID = event['params']['querystring']['CustomerID']
         print(f"Getting data for customer ID: {in_customerID}")
         response = dynamo_client.get_item(
-            TableName = 'Customers', Key = {'CustomerID':{'N': in_customerID}}
+            TableName = 'customers', Key = {'CustomerID':{'N': in_customerID}}
         )
         print(f"Got item: {response['Item']}")
         return {
